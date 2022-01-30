@@ -135,7 +135,9 @@ public class FrontControllerServletV5 extends HttpServlet {
 }
 ```
 
-![v5](/media/mwkang/Klevv/Spring 일지/MVC1/01.09/v5.png)
+![v5](https://user-images.githubusercontent.com/79822924/151713947-3ca775dc-2832-458e-8ece-c47997e312ae.png)
+
+Image 출처 : [김영한 스프링 MVC1](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-mvc-1)
 
 Spring MVC의 DispatcherServlet을 Serlvet으로 주요 기능인 HandlerMapping, HanderAdapter을 직접 구현한 것이다. 다형성을 이용하여 확장성을 고려하였으며 Spring MVC 패턴의 내부 로직을 정확히 이해하여 응용하는 것이 가능하다.
 
