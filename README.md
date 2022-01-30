@@ -149,7 +149,8 @@ Spring MVC의 DispatcherServlet을 Serlvet으로 주요 기능인 HandlerMapping
 
 
 
-![Spring-Servlet-MVCPattern-SpringMVC](/home/mwkang/Downloads/Spring-Servlet-MVCPattern-SpringMVC.gif)
+![Spring-Servlet-MVCPattern-SpringMVC](https://user-images.githubusercontent.com/79822924/151713665-9c982d58-45cf-45fe-8498-e7683f2282c4.gif)
+
 
 
 
@@ -158,3 +159,7 @@ Spring MVC의 DispatcherServlet을 Serlvet으로 주요 기능인 HandlerMapping
 
 
 ## More Explanation
+
+
+
+[Spring-Servlet-MVCPattern-SpringMVC-Note.md](https://github.com/mwkangit/Spring-Servlet-MVCPattern-SpringMVC/blob/master/Spring-Servlet-MVCPattern-SpringMVC-Note.md)
