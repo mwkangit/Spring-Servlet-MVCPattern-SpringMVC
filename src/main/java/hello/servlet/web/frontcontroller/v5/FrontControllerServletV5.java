@@ -1,72 +1,27 @@
-# Spring-Servlet-MVCPattern-SpringMVC
+package hello.servlet.web.frontcontroller.v5;
 
+import hello.servlet.web.frontcontroller.ModelView;
+import hello.servlet.web.frontcontroller.MyView;
+import hello.servlet.web.frontcontroller.v3.controller.MemberFormControllerV3;
+import hello.servlet.web.frontcontroller.v3.controller.MemberListControllerV3;
+import hello.servlet.web.frontcontroller.v3.controller.MemberSaveControllerV3;
+import hello.servlet.web.frontcontroller.v4.controller.MemberFormControllerV4;
+import hello.servlet.web.frontcontroller.v4.controller.MemberListControllerV4;
+import hello.servlet.web.frontcontroller.v4.controller.MemberSaveControllerV4;
+import hello.servlet.web.frontcontroller.v5.adapter.ControllerV3HandlerAdapter;
+import hello.servlet.web.frontcontroller.v5.adapter.ControllerV4HandlerAdapter;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-## Description
-
-본 프로젝트는 MVC 패턴의 탄생 배경과 MVC 패턴을 직접 세부적으로 구현 한다. WAS를 통한 Servlet의 작동 원리를 이해한 후 초기 Servlet Pattern부터 구현 한다. Servlet과 JSP Pattern을 구현한 후 MVC 패턴의 필요성과 발전 과정에 맞춰서 Version 1 ~ Version 5까지 구현 한다. 직접 구현한 MVC 패턴은 Spring MVC에 자동으로 등록된 주요 기능이며  추후에 Spring MVC 구현 및 디버깅 시 빠르게 문제점을 발견하고 해결할 수 있다.
-
-
-
-------
-
-
-
-## Environment
-
-<img alt="framework" src ="https://img.shields.io/badge/Framework-SpringBoot-green"/><img alt="framework" src ="https://img.shields.io/badge/Language-java-b07219"/> 
-
-Framework: `Spring Boot` 2.6.2
-
-Project: `Gradle`
-
-Packaging: `War` (JSP를 실행 위함)
-
-IDE: `Intellij`
-
-Template Engine: `JSP`
-
-Dependencies: `Spring Web`, `Lombok`
-
-
-
-------
-
-
-
-## Installation
-
-
-
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black) 
-
-```
-./gradlew build
-cd build/lib
-java -jar hello-spring-0.0.1-SNAPSHOT.jar
-```
-
-
-
-![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white) 
-
-```
-gradlew build
-cd build/lib
-java -jar hello-spring-0.0.1-SNAPSHOT.jar
-```
-
-
-
-------
-
-
-
-## Core Feature
-
-
-
-```java
 @WebServlet(name = "frontControllerServletV5", urlPatterns = "/front-controller/v5/*")
 public class FrontControllerServletV5 extends HttpServlet {
 
@@ -97,6 +52,7 @@ public class FrontControllerServletV5 extends HttpServlet {
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        // handler 찾아온다
         Object handler = getHandler(request);
 
         if(handler == null){
@@ -104,10 +60,13 @@ public class FrontControllerServletV5 extends HttpServlet {
             return;
         }
 
+        // handler 에 대한 adapter 찾아온다
         MyHandlerAdapter adapter = getHandlerAdapter(handler);
 
+        // adapter에서 핸들을 하여 핸들러를 호출한다. 호출한 결과를 ModelView 객체에 담아서 반환한다.
         ModelView mv = adapter.handle(request, response, handler);
 
+        // 뷰 논리이름을 물리이름으로 변환한다
         String viewName = mv.getViewName();
         MyView view = viewResolver(viewName);
 
@@ -132,29 +91,8 @@ public class FrontControllerServletV5 extends HttpServlet {
     private MyView viewResolver(String viewName) {
         return new MyView("/WEB-INF/views/" + viewName + ".jsp");
     }
+
+
+
 }
-```
 
-![v5](/media/mwkang/Klevv/Spring 일지/MVC1/01.09/v5.png)
-
-Spring MVC의 DispatcherServlet을 Serlvet으로 주요 기능인 HandlerMapping, HanderAdapter을 직접 구현한 것이다. 다형성을 이용하여 확장성을 고려하였으며 Spring MVC 패턴의 내부 로직을 정확히 이해하여 응용하는 것이 가능하다.
-
-
-
-------
-
-
-
-## Demonstration Video
-
-
-
-![Spring-Servlet-MVCPattern-SpringMVC](/home/mwkang/Downloads/Spring-Servlet-MVCPattern-SpringMVC.gif)
-
-
-
-------
-
-
-
-## More Explanation
