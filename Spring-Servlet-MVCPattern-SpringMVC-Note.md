@@ -913,7 +913,7 @@ implementation 'javax.servlet:jstl'
 
 
 
-![MVC pattern](/media/mwkang/Klevv/Spring 일지/MVC1/01.09/MVC pattern.png)
+![MVC pattern](https://user-images.githubusercontent.com/79822924/151759724-9a2a97f9-0628-4853-91f7-09151b19ea36.png)
 
 - #### 비즈니스 로직은 서블릿처럼 다른 곳에서 처리하고 JSP는 목적에 맞게 HTML로 화면을 표시하게 나누는 패턴이다.
 
@@ -1013,7 +1013,7 @@ public class MvcMemberListServlet extends HttpServlet {
 
 
 
-![v1](/media/mwkang/Klevv/Spring 일지/MVC1/01.09/v1.png)
+![v1](https://user-images.githubusercontent.com/79822924/151759748-0a7e0a86-eb3f-4445-a9c8-8df1e96a7a28.png)
 
 - #### 프론트 컨트롤러 서블릿 하나로 클라이언트의 요청을 받아서 나머지 컨트롤러는 서블릿을 사용하지 않아도 된다.
 
@@ -1096,7 +1096,7 @@ public class FrontControllerServletV1 extends HttpServlet {
 
 
 
-![v2](/media/mwkang/Klevv/Spring 일지/MVC1/01.09/v2.png)
+![v2](https://user-images.githubusercontent.com/79822924/151759783-403dedef-7c6a-459e-9d15-db45b77120a7.png)
 
 - #### Version 1과 비슷하지만 MyView 객체의 도입으로 뷰를 호출하는 여역을 분리한다.
 
@@ -1187,7 +1187,7 @@ public class MyView {
 
 
 
-![v3](/media/mwkang/Klevv/Spring 일지/MVC1/01.09/v3.png)
+![v3](https://user-images.githubusercontent.com/79822924/151759801-2774dc33-44bc-42ab-aa98-24dde7a0d6d5.png)
 
 - #### ModelView 클래스를 생성하여 호출할 논리 이름, 뷰에 전달할 모델을 담는 형식의 설계이다.
 
@@ -1321,7 +1321,7 @@ public class ModelView {
 
 
 
-![v4](/media/mwkang/Klevv/Spring 일지/MVC1/01.09/v4.png)
+![v4](https://user-images.githubusercontent.com/79822924/151759813-502cf15b-cfdc-4cd9-ae16-353089472997.png)
 
 - #### 개발자가 편리하게 개발할 수  있게 Version 3를 리펙토링하는 작업을 수행한다.
 
@@ -1417,7 +1417,7 @@ public class FrontControllerServletV4 extends HttpServlet {
 
 
 
-![v5](/media/mwkang/Klevv/Spring 일지/MVC1/01.09/v5.png)
+![v5](https://user-images.githubusercontent.com/79822924/151759833-81dff25d-e0a3-4b7d-ad20-c76fb9ab2914.png)
 
 - #### 각 컨트롤러를 사용할 때 어떤 컨트롤러는 Version 3를 이용하고 어떤 컨트롤러는 Version 4를 이용하고자 할 때 이전 코드는 객체 타입이 정해져 있어서 반영하지 못 한다.
 
@@ -1595,7 +1595,7 @@ public class FrontControllerServletV5 extends HttpServlet {
 
 
 
-![spring_mvc구조](/media/mwkang/Klevv/Spring 일지/MVC1/01.09/spring_mvc구조.png)
+![spring_mvc구조](https://user-images.githubusercontent.com/79822924/151759851-3951a954-1247-4da1-a6f3-207cf5148576.png)
 
 - #### 스프링 MVC에서는 프론트 컨트롤러가 디스패처 서블릿(Dispatcher Servlet)으로 대체된다.
 
